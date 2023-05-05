@@ -1,5 +1,3 @@
-// Eloquent Javascript Chapter 06 Exercises
-
 // Problem 1. A vector type
 
 // Write a class Vec that represents a vector in two-dimensional space. It takes x and y parameters (numbers), which it should save to properties of the same name.
@@ -41,50 +39,3 @@ console.log('Problem 1');
 console.log(new Vec(1, 2).plus(new Vec(2, 3)));
 console.log(new Vec(1, 2).minus(new Vec(2, 3)));
 console.log(new Vec(3, 4).length);
-
-// Problem 2. Groups
-class Group {
-  constructor() {
-    this.group = [];
-  }
-
-  add(value) {
-    //includes return a Boolean
-    this.group.includes(value) ? this.group : this.group.push(value);
-    // mayanwolfe solution
-    // if(!this.group.includes(value)) this.group.push(value);
-  }
-
-  delete(value) {
-    let newGroup = this.group.filter((num) => num !== value);
-    this.group = newGroup;
-
-    // mayanwolfe solution
-    // splice method remove or replace existing elements in an array and/or 
-    if(this.group.includes(value)){
-      this.group.splice(, 1)
-    }
-  }
-
-  has(value) {
-    return this.group.includes(value);
-  }
-
-  // methods that have static written before their name are stored on the constructor, rather than its prototype;
-  static from(arr) {
-    let group = new Group();
-    for (let element of arr) {
-      group.add(element);
-    }
-    return group;
-  }
-}
-
-console.log('Problem 2');
-
-let group = Group.from([10, 20]);
-console.log(group.has(10));
-console.log(group.has(30));
-group.add(10);
-group.delete(10);
-console.log(group.has(10));
